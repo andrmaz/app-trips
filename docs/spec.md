@@ -68,7 +68,8 @@ _This section lists some of the main functional requirements of the web app. Thi
 
 #### Ratings and Reviews
 
-- Each trip should display a `score` badge based on `rating`, `nrOfRatings` and `co2` (the way to calculate it is up to you, but there should be 3 tiers assignable to the resulting score).
+- Each trip should display a `score` badge based on `rating`, `nrOfRatings` and `co2` (the way to calculate it is up to you)
+- There should be 3 tiers assignable to the resulting score: `average`, `good` and `awesome`.
 
 ### Architectural Requirements
 
