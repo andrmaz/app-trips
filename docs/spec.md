@@ -46,23 +46,28 @@ _This section describes the customer-facing application in more detail. It's mea
 _This section lists some of the main functional requirements of the web app. This is more of a functionality overview to help guide some of the architectural decisions._
 
 #### Browsing Trips
+
 - Users can browse trips on the homepage.
 - Trips are displayed with their name, basic traits and thumbnail.
 - Users can sort trips by price, creationDate, rating, name or verticalType.
 
 #### Trip Details
+
 - Users can tap on a particular trip to see more details.
 - The detail page displays the photo of the trip in a bigger size, and all the data, including the description.
 
 #### Navigation
+
 - Users can navigate back and forth between the detail and home page.
 - If any sorting is applied, and detail is opened, navigating to home should preserve this order.
 
 #### Trip of the Day
-- There should be a button that gives us the "trip of the day" on the home page. 
+
+- There should be a button that gives us the "trip of the day" on the home page.
 - The trip of the day should not change during the navigation and will remain the same for the whole day.
 
 #### Ratings and Reviews
+
 - Each trip should display a `score` badge based on `rating`, `nrOfRatings` and `co2` (the way to calculate it is up to you, but there should be 3 tiers assignable to the resulting score).
 
 ### Architectural Requirements
