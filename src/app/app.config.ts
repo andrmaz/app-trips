@@ -6,7 +6,7 @@ import {provideTranslateService, TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 
 import {routes} from './app.routes'
-import {config} from './config'
+import {config, provideAppConfig} from './config'
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (
   http: HttpClient
@@ -26,5 +26,6 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient],
       },
     }),
+    provideAppConfig(),
   ],
 }

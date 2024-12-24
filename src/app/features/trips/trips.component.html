@@ -1,0 +1,68 @@
+<mat-toolbar>
+  <h1>{{ 'app.title' | translate }}</h1>
+</mat-toolbar>
+
+<mat-drawer-container>
+  <mat-drawer mode="side" opened></mat-drawer>
+  <mat-drawer-content>
+    <main class="content">
+      <div class="stack">
+        <mat-form-field>
+          <mat-label> {{ 'app.trips.actions.sort' | translate }}</mat-label>
+          <mat-select
+            [value]="selectedSort()"
+            (selectionChange)="handleSortChange($event)"
+          >
+            @for (option of sortOptions; track option) {
+              <mat-option [value]="option">
+                {{ 'app.trips.sort.' + option | translate }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="cards-container">
+        @if (trips.status() === ResourceStatus.Loading) {
+          <mat-spinner></mat-spinner>
+          <mat-spinner></mat-spinner>
+          <mat-spinner></mat-spinner>
+          <mat-spinner></mat-spinner>
+          <mat-spinner></mat-spinner>
+        }
+        @if (trips.hasValue()) {
+          @for (trip of trips.value()?.items; track trip.id) {
+            <mat-card class="card" appearance="outlined">
+              <div class="image-container">
+                <img
+                  mat-card-image
+                  [ngSrc]="trip.thumbnailUrl"
+                  [alt]="trip.title"
+                  fill
+                  priority
+                />
+              </div>
+              <mat-card-header>
+                <mat-card-title>{{ trip.title }}</mat-card-title>
+                <mat-card-subtitle>{{ trip.description }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content></mat-card-content>
+            </mat-card>
+          }
+        }
+      </div>
+    </main>
+
+    <mat-paginator
+      (page)="handlePageEvent($event)"
+      [length]="length()"
+      [pageSize]="pageSize()"
+      [disabled]="disabled"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageIndex()"
+      [attr.aria-label]="'app.trips.actions.page' | translate"
+    >
+    </mat-paginator>
+  </mat-drawer-content>
+</mat-drawer-container>

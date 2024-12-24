@@ -1,6 +1,29 @@
 {
   "app": {
-    "hello": "hello {{value}}",
-    "title": "Translation Demo"
+    "title": "App Trips",
+    "trips": {
+      "sort": {
+        "title": {
+          "ASC": "Title (ascending)",
+          "DESC": "Title (descending)"
+        },
+        "price": {
+          "ASC": "Price (lowest first)",
+          "DESC": "Price (highest first)"
+        },
+        "rating": {
+          "ASC": "Rating (low to high)",
+          "DESC": "Rating (high to low)"
+        },
+        "createdAt": {
+          "ASC": "Created date (oldest first)",
+          "DESC": "Created date (newest first)"
+        }
+      },
+      "actions": {
+        "sort": "Sort by",
+        "page": "Select page"
+      }
+    }
   }
 }
