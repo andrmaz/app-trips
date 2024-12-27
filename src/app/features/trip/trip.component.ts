@@ -11,6 +11,7 @@ import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card'
 import {MatChip, MatChipSet} from '@angular/material/chips'
 import {MatDivider} from '@angular/material/divider'
 import {MatIcon} from '@angular/material/icon'
+import {MatProgressSpinner} from '@angular/material/progress-spinner'
 import {MatToolbar} from '@angular/material/toolbar'
 import {ActivatedRoute} from '@angular/router'
 import {TranslatePipe} from '@ngx-translate/core'
@@ -40,6 +41,7 @@ import {catchServerError} from '../../shared/errors'
     MatDivider,
     MatCardActions,
     UpperCasePipe,
+    MatProgressSpinner,
   ],
 })
 export class TripComponent {
