@@ -22,7 +22,19 @@
       },
       "actions": {
         "sort": "Sort by",
-        "page": "Select page"
+        "page": "Select page",
+        "details": "See more"
+      }
+    },
+    "trip": {
+      "intro": "Overview",
+      "tags": "Trip tags",
+      "price": "From",
+      "ratings": "{{ratings}} reviews",
+      "created": "Valid on",
+      "vertical": "Travel style",
+      "actions": {
+        "book": "Book now"
       }
     },
     "errors": {

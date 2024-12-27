@@ -3,7 +3,7 @@ import {inject, Injectable} from '@angular/core'
 import {Observable} from 'rxjs'
 
 import {environment} from '../../environments/environment'
-import {SortBy, SortOrder, TripsResponse} from '../models'
+import {SortBy, SortOrder, Trip, TripsResponse} from '../models'
 
 @Injectable({providedIn: 'root'})
 export class TripsService {
@@ -31,9 +31,13 @@ export class TripsService {
       .set('limit', String(limit))
       .set('sortBy', sortBy)
       .set('sortOrder', sortOrder)
-    return this.http.get<TripsResponse>(this.baseUrl + '/trips', {
+    return this.http.get<TripsResponse>(`${this.baseUrl}/trips`, {
       params,
       headers,
     })
+  }
+
+  getTripById(id: string): Observable<Trip> {
+    return this.http.get<Trip>(`${this.baseUrl}/trips/${id}`)
   }
 }

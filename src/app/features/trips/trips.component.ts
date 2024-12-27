@@ -7,9 +7,10 @@ import {
   signal,
 } from '@angular/core'
 import {rxResource} from '@angular/core/rxjs-interop'
+import {MatAnchor} from '@angular/material/button'
 import {
   MatCard,
-  MatCardContent,
+  MatCardActions,
   MatCardHeader,
   MatCardImage,
   MatCardSubtitle,
@@ -25,6 +26,7 @@ import {
   MatDrawerContent,
 } from '@angular/material/sidenav'
 import {MatToolbar} from '@angular/material/toolbar'
+import {RouterLink, RouterLinkActive} from '@angular/router'
 import {TranslatePipe} from '@ngx-translate/core'
 import {tap} from 'rxjs'
 
@@ -42,7 +44,6 @@ import {catchServerError} from '../../shared/errors'
     TranslatePipe,
     MatCard,
     MatCardHeader,
-    MatCardContent,
     MatCardImage,
     NgOptimizedImage,
     MatCardTitle,
@@ -57,6 +58,10 @@ import {catchServerError} from '../../shared/errors'
     MatSelect,
     MatOption,
     MatToolbar,
+    MatCardActions,
+    RouterLink,
+    RouterLinkActive,
+    MatAnchor,
   ],
 })
 export class TripsComponent {
