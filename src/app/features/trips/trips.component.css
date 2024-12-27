@@ -13,6 +13,10 @@
 
     mat-drawer {
       box-shadow: var(--shadow-2);
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
 
     .content {

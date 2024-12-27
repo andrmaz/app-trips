@@ -30,7 +30,9 @@ import {tap} from 'rxjs'
 
 import {APP_CONFIG} from '../../config'
 import {SortBy, SortOrder} from '../../models'
+import {SnackbarService} from '../../services/snackbar.service'
 import {TripsService} from '../../services/trips.service'
+import {catchServerError} from '../../shared/errors'
 
 @Component({
   selector: 'app-trips',
@@ -58,8 +60,9 @@ import {TripsService} from '../../services/trips.service'
   ],
 })
 export class TripsComponent {
-  readonly tripsService = inject(TripsService)
   readonly config = inject(APP_CONFIG)
+  readonly tripsService = inject(TripsService)
+  readonly snackbarService = inject(SnackbarService)
 
   readonly hidePageSize = this.config.paginator.hidePageSize
   readonly showPageSizeOptions = this.config.paginator.showPageSizeOptions
@@ -95,6 +98,7 @@ export class TripsComponent {
     }),
     loader: ({request}) =>
       this.tripsService.getTrips(request).pipe(
+        catchServerError(() => this.snackbarService.error()),
         tap(res => {
           this.length.set(res.total)
         })

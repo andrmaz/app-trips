@@ -2,12 +2,12 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 import {inject, Injectable} from '@angular/core'
 import {Observable} from 'rxjs'
 
+import {environment} from '../../environments/environment'
 import {SortBy, SortOrder, TripsResponse} from '../models'
 
 @Injectable({providedIn: 'root'})
 export class TripsService {
-  private baseUrl =
-    'https://iy3ipnv3uc.execute-api.eu-west-1.amazonaws.com/Prod/v1'
+  private baseUrl = environment.apiUrl
   readonly http = inject(HttpClient)
 
   getTrips({

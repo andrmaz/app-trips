@@ -24,6 +24,9 @@
         "sort": "Sort by",
         "page": "Select page"
       }
+    },
+    "errors": {
+      "generic": "An error occurred"
     }
   }
 }
