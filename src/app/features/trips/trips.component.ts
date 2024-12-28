@@ -1,5 +1,6 @@
 import {NgOptimizedImage} from '@angular/common'
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   inject,
@@ -37,6 +38,7 @@ import {TripsService} from '../../services/trips.service'
 import {catchServerError} from '../../shared/errors'
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-trips',
   templateUrl: './trips.component.html',
   styleUrls: ['./trips.component.css'],
