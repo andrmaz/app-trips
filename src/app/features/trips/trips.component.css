@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: var(--size-5);
+
+  mat-toolbar {
+    margin-bottom: var(--size-3);
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius-2);
+  }
+
+  mat-drawer-container {
+    background-color: transparent;
+
+    mat-drawer {
+      box-shadow: var(--shadow-2);
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    .content {
+      padding: var(--size-2);
+      padding-top: 0;
+
+      .stack {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: var(--size-2);
+      }
+
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--size-xxs), 1fr));
+        gap: var(--size-3);
+        padding: var(--size-00);
+        justify-items: center;
+
+        .card {
+          max-width: var(--size-px-13);
+
+          .image-container {
+            --img-height: 200px;
+
+            position: relative;
+            height: var(--img-height);
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,10 @@
 import {Component} from '@angular/core'
 import {RouterOutlet} from '@angular/router'
-import {TranslatePipe} from '@ngx-translate/core'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TranslatePipe],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'app-trips'
-}
+export class AppComponent {}
