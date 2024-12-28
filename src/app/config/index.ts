@@ -5,7 +5,7 @@ export const config = {
     defaultLanguage: 'en',
   },
   paginator: {
-    pageSizeOptions: [10, 25],
+    pageSizeOptions: [10, 15],
     hidePageSize: false,
     showPageSizeOptions: true,
     showFirstLastButtons: true,
