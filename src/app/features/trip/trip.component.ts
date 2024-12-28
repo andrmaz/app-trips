@@ -5,7 +5,7 @@ import {
   NgOptimizedImage,
   UpperCasePipe,
 } from '@angular/common'
-import {Component, inject} from '@angular/core'
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core'
 import {MatAnchor, MatButton} from '@angular/material/button'
 import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card'
 import {MatChip, MatChipSet} from '@angular/material/chips'
@@ -22,6 +22,7 @@ import {TripsService} from '../../services/trips.service'
 import {catchServerError} from '../../shared/errors'
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-trip',
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.css'],
