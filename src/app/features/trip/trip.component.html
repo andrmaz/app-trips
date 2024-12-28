@@ -1,5 +1,13 @@
 <mat-toolbar>
-  <span>{{ 'app.title' | translate }}</span>
+  <a
+    mat-button
+    routerLink="/"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+    [attr.aria-label]="'app.actions.back' | translate"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </a>
 </mat-toolbar>
 
 @if (trip$ | async; as trip) {
@@ -18,14 +26,14 @@
         <h2>{{ 'app.trip.intro' | translate }}</h2>
         <div class="stack">
           <div>
-            <mat-icon fontIcon="schedule"></mat-icon>
+            <mat-icon>schedule</mat-icon>
             <span
             >{{ 'app.trip.created' | translate }}:
               <b>{{ trip.creationDate | date }}</b></span
             >
           </div>
           <div>
-            <mat-icon fontIcon="date_range"></mat-icon>
+            <mat-icon>date_range</mat-icon>
             <span>
               {{ 'app.trip.vertical' | translate }}:
               <b>{{ trip.verticalType | uppercase }}</b>
@@ -39,7 +47,10 @@
     <mat-card appearance="outlined" class="card">
       <mat-card-content>
         <div class="rating-container">
-          <mat-icon fontIcon="star" aria-hidden="false"></mat-icon>
+          <mat-icon>star</mat-icon>
+          <span class="cdk-visually-hidden">
+            {{ 'app.trip.rating' | translate }}
+          </span>
           <span class="rating">{{ trip.rating }}</span> &nbsp; - &nbsp;
           <small>
             {{ 'app.trip.ratings' | translate: {ratings: trip.nrOfRatings} }}

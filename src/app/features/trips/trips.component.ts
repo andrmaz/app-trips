@@ -34,6 +34,7 @@ import {tap} from 'rxjs'
 import {APP_CONFIG} from '../../config'
 import {SortBy, SortOrder} from '../../models'
 import {SnackbarService} from '../../services/snackbar.service'
+import {StorageService} from '../../services/storage.service'
 import {TripsService} from '../../services/trips.service'
 import {catchServerError} from '../../shared/errors'
 
@@ -70,6 +71,7 @@ export class TripsComponent {
   readonly config = inject(APP_CONFIG)
   readonly tripsService = inject(TripsService)
   readonly snackbarService = inject(SnackbarService)
+  readonly storageService = inject(StorageService)
 
   readonly hidePageSize = this.config.paginator.hidePageSize
   readonly showPageSizeOptions = this.config.paginator.showPageSizeOptions
@@ -89,11 +91,15 @@ export class TripsComponent {
     []
   )
 
-  readonly pageSize = signal<number>(this.pageSizeOptions[0])
-  readonly pageIndex = signal(0)
+  readonly pageSize = signal(
+    this.storageService.pageSize || this.pageSizeOptions[0]
+  )
+  readonly pageIndex = signal(this.storageService.pageIndex || 0)
   readonly length = signal(0)
-  readonly sortBy = signal<SortBy>('rating')
-  readonly sortOrder = signal<SortOrder>('DESC')
+  readonly sortBy = signal<SortBy>(this.storageService.sortBy || 'rating')
+  readonly sortOrder = signal<SortOrder>(
+    this.storageService.sortOrder || 'DESC'
+  )
   readonly selectedSort = computed(() => `${this.sortBy()}.${this.sortOrder()}`)
 
   readonly trips = rxResource({
@@ -113,14 +119,19 @@ export class TripsComponent {
   })
 
   handlePageEvent(event: PageEvent) {
-    this.pageSize.set(event.pageSize)
-    this.pageIndex.set(event.pageIndex)
+    const {pageSize, pageIndex} = event
+    this.pageSize.set(pageSize)
+    this.pageIndex.set(pageIndex)
+    this.storageService.pageSize = pageSize
+    this.storageService.pageIndex = pageIndex
   }
 
   handleSortChange(event: MatSelectChange) {
     const [sortBy, sortOrder] = event.value.split('.') as [SortBy, SortOrder]
     this.sortBy.set(sortBy)
     this.sortOrder.set(sortOrder)
+    this.storageService.sortBy = sortBy
+    this.storageService.sortOrder = sortOrder
   }
 
   protected readonly ResourceStatus = ResourceStatus

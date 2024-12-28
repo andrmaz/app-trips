@@ -19,35 +19,37 @@
       }
     }
 
-    .content {
-      padding: var(--size-2);
-      padding-top: 0;
+    mat-drawer-content {
+      .content {
+        padding: var(--size-2);
+        padding-top: 0;
 
-      .stack {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: var(--size-2);
-      }
+        .stack {
+          display: flex;
+          justify-content: flex-end;
+          margin-bottom: var(--size-2);
+        }
 
-      .cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(var(--size-xxs), 1fr));
-        gap: var(--size-3);
-        padding: var(--size-00);
-        justify-items: center;
+        .cards-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(var(--size-xxs), 1fr));
+          gap: var(--size-3);
+          padding: var(--size-00);
+          justify-items: center;
 
-        .card {
-          max-width: var(--size-px-13);
+          .card {
+            max-width: var(--size-px-13);
 
-          .image-container {
-            --img-height: 200px;
-            --border-radius: 11px;
+            .image-container {
+              --img-height: 200px;
+              --border-radius: 11px;
 
-            position: relative;
-            height: var(--img-height);
-            width: 100%;
-            border-top-left-radius: var(--border-radius);
-            border-top-right-radius: var(--border-radius);
+              position: relative;
+              height: var(--img-height);
+              width: 100%;
+              border-top-left-radius: var(--border-radius);
+              border-top-right-radius: var(--border-radius);
+            }
           }
         }
       }

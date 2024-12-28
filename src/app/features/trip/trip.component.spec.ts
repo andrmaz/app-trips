@@ -74,4 +74,9 @@ describe('TripComponent', () => {
 
     expect(tripsService.getTripById).toHaveBeenCalledWith('1')
   })
+
+  it('should include a link to the home page', () => {
+    const homeLink = fixture.nativeElement.querySelector('a[routerLink="/"]')
+    expect(homeLink).toBeTruthy()
+  })
 })
