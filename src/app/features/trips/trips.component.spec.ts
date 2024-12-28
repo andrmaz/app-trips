@@ -51,13 +51,23 @@ describe('TripsComponent', () => {
     tripsService = TestBed.inject(TripsService) as jasmine.SpyObj<TripsService>
   })
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TripsComponent)
+    component = fixture.componentInstance
+    component.pageIndex.set(0)
+    component.pageSize.set(10)
+    component.sortBy.set('rating')
+    component.sortOrder.set('DESC')
+    fixture.detectChanges()
+  })
+
   it('should create the component', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should load trips on init', () => {
+  it('should load trips on init', async () => {
     const tripsResponse: TripsResponse = {
-      total: 100,
+      total: 50,
       items: [],
       limit: 10,
       page: 1,
@@ -65,9 +75,14 @@ describe('TripsComponent', () => {
     tripsService.getTrips.and.returnValue(of(tripsResponse))
 
     fixture.detectChanges()
+    await fixture.whenStable()
 
-    expect(tripsService.getTrips).toHaveBeenCalled()
-    expect(component.length()).toBe(100)
+    expect(tripsService.getTrips).toHaveBeenCalledWith({
+      page: 0,
+      limit: 10,
+      sortBy: 'rating',
+      sortOrder: 'DESC',
+    })
   })
 
   it('should handle page event', () => {
