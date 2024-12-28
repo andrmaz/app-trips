@@ -6,14 +6,14 @@ import {
   UpperCasePipe,
 } from '@angular/common'
 import {Component, inject} from '@angular/core'
-import {MatButton} from '@angular/material/button'
+import {MatAnchor, MatButton} from '@angular/material/button'
 import {MatCard, MatCardActions, MatCardContent} from '@angular/material/card'
 import {MatChip, MatChipSet} from '@angular/material/chips'
 import {MatDivider} from '@angular/material/divider'
 import {MatIcon} from '@angular/material/icon'
 import {MatProgressSpinner} from '@angular/material/progress-spinner'
 import {MatToolbar} from '@angular/material/toolbar'
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute, RouterLink, RouterLinkActive} from '@angular/router'
 import {TranslatePipe} from '@ngx-translate/core'
 import {switchMap} from 'rxjs'
 
@@ -42,6 +42,9 @@ import {catchServerError} from '../../shared/errors'
     MatCardActions,
     UpperCasePipe,
     MatProgressSpinner,
+    MatAnchor,
+    RouterLinkActive,
+    RouterLink,
   ],
 })
 export class TripComponent {

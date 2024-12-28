@@ -4,12 +4,12 @@ import {catchError, EMPTY, OperatorFunction} from 'rxjs'
 export function catchServerError<T>(
   cb: (err: HttpErrorResponse) => void
 ): OperatorFunction<T, T> {
-  return catchError((e, caught) => {
+  return catchError((error, caught) => {
     if (
-      e instanceof HttpErrorResponse &&
-      e.status === HttpStatusCode.InternalServerError
+      error instanceof HttpErrorResponse &&
+      error.status === HttpStatusCode.InternalServerError
     ) {
-      cb(e)
+      cb(error)
       return EMPTY
     }
     return caught

@@ -30,6 +30,7 @@
       "intro": "Overview",
       "tags": "Trip tags",
       "price": "From",
+      "rating": "Rating",
       "ratings": "{{ratings}} reviews",
       "created": "Valid on",
       "vertical": "Travel style",
@@ -39,6 +40,9 @@
     },
     "errors": {
       "generic": "An error occurred"
+    },
+    "actions": {
+      "back": "Back"
     }
   }
 }
