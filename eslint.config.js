@@ -42,6 +42,7 @@ module.exports = tseslint.config(
       'unused-imports/no-unused-imports': 'error',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
+      'prettier/prettier': ['error', {endOfLine: 'auto'}],
     },
   },
   {

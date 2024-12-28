@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing'
 import {PageEvent} from '@angular/material/paginator'
 import {MatSelectChange} from '@angular/material/select'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {ActivatedRoute} from '@angular/router'
 import {TranslateModule} from '@ngx-translate/core'
 import {of} from 'rxjs'
 
@@ -43,6 +44,12 @@ describe('TripsComponent', () => {
         {provide: TripsService, useValue: tripsServiceSpy},
         {provide: SnackbarService, useValue: snackbarServiceSpy},
         {provide: APP_CONFIG, useValue: appConfigMock},
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({get: () => '1'}),
+          },
+        },
       ],
     }).compileComponents()
 
@@ -101,5 +108,12 @@ describe('TripsComponent', () => {
 
     expect(component.sortBy()).toBe('rating')
     expect(component.sortOrder()).toBe('ASC')
+  })
+
+  it('should include a link to the trip of the day page', () => {
+    const tripOfDayLink = fixture.nativeElement.querySelector(
+      'a[routerLink="/trip-of-day"]'
+    )
+    expect(tripOfDayLink).toBeTruthy()
   })
 })

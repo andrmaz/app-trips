@@ -40,4 +40,8 @@ export class TripsService {
   getTripById(id: string): Observable<Trip> {
     return this.http.get<Trip>(`${this.baseUrl}/trips/${id}`)
   }
+
+  getTripOfDay(): Observable<Trip> {
+    return this.http.get<Trip>(`${this.baseUrl}/trips/random/trip-of-the-day`)
+  }
 }

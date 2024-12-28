@@ -1,5 +1,14 @@
 <mat-toolbar>
-  <h1>{{ 'app.title' | translate }}</h1>
+  <a
+    mat-stroked-button
+    color="primary"
+    routerLink="/trip-of-day"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+  >
+    {{ 'app.trip.recommended' | translate }}
+  </a
+  >
 </mat-toolbar>
 
 <mat-drawer-container>
@@ -53,8 +62,7 @@
                   ariaCurrentWhenActive="page"
                 >
                   {{ 'app.trips.actions.details' | translate }}
-                </a
-                >
+                </a>
               </mat-card-actions>
             </mat-card>
           }

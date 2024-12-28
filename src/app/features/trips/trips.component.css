@@ -6,6 +6,10 @@
     margin-bottom: var(--size-3);
     box-shadow: var(--shadow-2);
     border-radius: var(--radius-2);
+
+    a {
+      margin-left: auto;
+    }
   }
 
   mat-drawer-container {

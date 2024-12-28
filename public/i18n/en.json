@@ -36,7 +36,8 @@
       "vertical": "Travel style",
       "actions": {
         "book": "Book now"
-      }
+      },
+      "recommended": "Trip Of The Day"
     },
     "errors": {
       "generic": "An error occurred"
