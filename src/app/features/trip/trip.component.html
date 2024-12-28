@@ -1,0 +1,64 @@
+<mat-toolbar>
+  <span>{{ 'app.title' | translate }}</span>
+</mat-toolbar>
+
+@if (trip$ | async; as trip) {
+  <div class="wrapper">
+    <main class="content">
+      <h1>{{ trip.title }}</h1>
+      <mat-chip-set [attr.aria-label]="'app.trip.tags' | translate">
+        @for (tag of trip.tags; track $index) {
+          <mat-chip>{{ tag }}</mat-chip>
+        }
+      </mat-chip-set>
+      <div class="image-container">
+        <img [ngSrc]="trip.imageUrl" [alt]="trip.title" fill priority/>
+      </div>
+      <section>
+        <h2>{{ 'app.trip.intro' | translate }}</h2>
+        <div class="stack">
+          <div>
+            <mat-icon fontIcon="schedule"></mat-icon>
+            <span
+            >{{ 'app.trip.created' | translate }}:
+              <b>{{ trip.creationDate | date }}</b></span
+            >
+          </div>
+          <div>
+            <mat-icon fontIcon="date_range"></mat-icon>
+            <span>
+              {{ 'app.trip.vertical' | translate }}:
+              <b>{{ trip.verticalType | uppercase }}</b>
+            </span>
+          </div>
+        </div>
+        <mat-divider class="separator"></mat-divider>
+        <p>{{ trip.description }}</p>
+      </section>
+    </main>
+    <mat-card appearance="outlined" class="card">
+      <mat-card-content>
+        <div class="rating-container">
+          <mat-icon fontIcon="star" aria-hidden="false"></mat-icon>
+          <span class="rating">{{ trip.rating }}</span> &nbsp; - &nbsp;
+          <small>
+            {{ 'app.trip.ratings' | translate: {ratings: trip.nrOfRatings} }}
+          </small>
+        </div>
+        <p>
+          {{ 'app.trip.price' | translate }}
+          <strong class="price">{{ trip.price | currency }}</strong>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary">
+          {{ 'app.trip.actions.book' | translate }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+} @else {
+  <div class="spinner-backdrop">
+    <mat-spinner mode="indeterminate" diameter="200"></mat-spinner>
+  </div>
+}

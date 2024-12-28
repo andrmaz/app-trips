@@ -36,7 +36,7 @@
                 <img
                   mat-card-image
                   [ngSrc]="trip.thumbnailUrl"
-                  [alt]="trip.title"
+                  alt=""
                   fill
                   priority
                 />
@@ -45,7 +45,17 @@
                 <mat-card-title>{{ trip.title }}</mat-card-title>
                 <mat-card-subtitle>{{ trip.description }}</mat-card-subtitle>
               </mat-card-header>
-              <mat-card-content></mat-card-content>
+              <mat-card-actions>
+                <a
+                  mat-button
+                  [routerLink]="['/trip', trip.id]"
+                  routerLinkActive="active"
+                  ariaCurrentWhenActive="page"
+                >
+                  {{ 'app.trips.actions.details' | translate }}
+                </a
+                >
+              </mat-card-actions>
             </mat-card>
           }
         }
