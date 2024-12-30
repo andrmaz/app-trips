@@ -7,8 +7,7 @@
     ariaCurrentWhenActive="page"
   >
     {{ 'app.trip.recommended' | translate }}
-  </a
-  >
+  </a>
 </mat-toolbar>
 
 <mat-drawer-container>
@@ -17,7 +16,7 @@
     <main class="content">
       <div class="stack">
         <mat-form-field>
-          <mat-label> {{ 'app.trips.actions.sort' | translate }}</mat-label>
+          <mat-label>{{ 'app.trips.actions.sort' | translate }}</mat-label>
           <mat-select
             [value]="selectedSort()"
             (selectionChange)="handleSortChange($event)"

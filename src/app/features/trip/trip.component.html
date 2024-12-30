@@ -20,15 +20,15 @@
         }
       </mat-chip-set>
       <div class="image-container">
-        <img [ngSrc]="trip.imageUrl" [alt]="trip.title" fill priority/>
+        <img [ngSrc]="trip.imageUrl" [alt]="trip.title" fill priority />
       </div>
       <section>
         <h2>{{ 'app.trip.intro' | translate }}</h2>
         <div class="stack">
           <div>
             <mat-icon>schedule</mat-icon>
-            <span
-            >{{ 'app.trip.created' | translate }}:
+            <span>
+              {{ 'app.trip.created' | translate }}:
               <b>{{ trip.creationDate | date }}</b></span
             >
           </div>
