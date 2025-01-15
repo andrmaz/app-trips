@@ -15,7 +15,7 @@
           "ASC": "Rating (low to high)",
           "DESC": "Rating (high to low)"
         },
-        "createdAt": {
+        "creationDate": {
           "ASC": "Created date (oldest first)",
           "DESC": "Created date (newest first)"
         }

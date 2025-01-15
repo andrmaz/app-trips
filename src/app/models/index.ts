@@ -20,5 +20,9 @@ export interface TripsResponse {
   total: number
 }
 
-export type SortBy = 'title' | 'price' | 'rating' | 'createdAt'
+export type TripKeys = keyof Trip
+export type SortBy = Extract<
+  TripKeys,
+  'title' | 'price' | 'rating' | 'creationDate'
+>
 export type SortOrder = 'ASC' | 'DESC'

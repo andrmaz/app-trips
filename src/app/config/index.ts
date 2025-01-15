@@ -10,7 +10,7 @@ export const config = {
     showPageSizeOptions: true,
     showFirstLastButtons: true,
     disabled: false,
-    sortByOptions: ['title', 'price', 'rating', 'createdAt'],
+    sortByOptions: ['title', 'price', 'rating', 'creationDate'],
     sortOrderOptions: ['ASC', 'DESC'],
   },
 } as const
